@@ -19,10 +19,12 @@ editor.Menu = Class.extend({
 	    var view = new editor.gui.Menu();
 	    view.append(new editor.gui.MenuItem({ label: 'Sidebar', click: editor.toggleCurrentTab.bind(editor) }));
 	    view.append(new editor.gui.MenuItem({ label: 'Console', click: editor.toggleConsole.bind(editor) }));
-	    view.append(new editor.gui.MenuItem({ label: 'Debug bar', click: editor.toggleDebugBar.bind(editor) }));
-	    view.append(new editor.gui.MenuItem({ label: 'Bounds', click: editor.toggleBounds.bind(editor) }));
-	    view.append(new editor.gui.MenuItem({ label: 'Hit areas', click: editor.toggleHitAreas.bind(editor) }));
-	    view.append(new editor.gui.MenuItem({ label: 'Bodies', click: editor.toggleBodies.bind(editor) }));
+
+	    var debug = new editor.gui.Menu();
+	    debug.append(new editor.gui.MenuItem({ label: 'Panel', click: editor.toggleDebugBar.bind(editor) }));
+	    debug.append(new editor.gui.MenuItem({ label: 'Bounds', click: editor.toggleBounds.bind(editor) }));
+	    debug.append(new editor.gui.MenuItem({ label: 'Hit areas', click: editor.toggleHitAreas.bind(editor) }));
+	    debug.append(new editor.gui.MenuItem({ label: 'Bodies', click: editor.toggleBodies.bind(editor) }));
 	    
 	    // // Project menu
 	    // var project = new editor.gui.Menu();
@@ -42,6 +44,7 @@ editor.Menu = Class.extend({
 	    menubar[cmd](new editor.gui.MenuItem({ label: 'File', submenu: file }), 1);
 		menubar[cmd](new editor.gui.MenuItem({ label: 'Devices', submenu: devices }), 3);
 		menubar[cmd](new editor.gui.MenuItem({ label: 'View', submenu: view }), 4);
+		menubar[cmd](new editor.gui.MenuItem({ label: 'Debug', submenu: debug }), 5);
 	    menubar.append(new editor.gui.MenuItem({ label: 'Help', submenu: help }));
 
 	    editor.window.menu = menubar;
