@@ -362,6 +362,7 @@ editor.Project = Class.extend({
 	            var classObj = this.modules[name].classes[className];
 	            var div = document.createElement('div');
 	            $(div).addClass('class');
+	            if (classObj.extend === 'Scene') $(div).addClass('scene');
 	            $(div).html(editor.getClassName(className, classObj.extend));
 	            $(div).appendTo($('#modules .content .list'));
 	            $(div).attr('data-name', className);

@@ -221,6 +221,13 @@ label {
 	margin-left: 5px;
 }
 
+#modules span.gray {
+	color: #555;
+}
+
+#modules .scene {
+}
+
 #modules .class {
 	padding-left: 20px;
 }

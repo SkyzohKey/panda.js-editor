@@ -471,7 +471,7 @@ var editor = {
         if (extend !== 'Class') {
             if (extend === 'Scene') className = className.replace('Scene', '');
             // return extend + ' > ' + className;
-            return className + ' (' + extend + ')';
+            return className + ' <span class="gray">' + extend + '</span>';
         }
         return className;
     },

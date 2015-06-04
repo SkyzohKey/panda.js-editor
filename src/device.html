@@ -202,7 +202,7 @@ game.module('engine.editor')
 	game.Debug.inject({
 		connected: false,
 
-		_setText: function(text) {
+		_updateText: function() {
 			if (app.connected && !this.connected) {
 				this.connected = true;
 				this.debugDiv.style.color = '#00ff00';
@@ -211,10 +211,10 @@ game.module('engine.editor')
 				this.connected = false;
 				this.debugDiv.style.color = '#ff0000';
 			}
-			text += ' SYSTEM: ' + game.system.width + 'x' + game.system.height;
-			text += ' CANVAS: ' + game.system.canvasWidth + 'x' + game.system.canvasHeight;
-			text += ' WINDOW: ' + window.innerWidth + 'x' + window.innerHeight;
-			this.super(text);
+			this.text += ' SYSTEM: ' + game.system.width + 'x' + game.system.height;
+			this.text += ' CANVAS: ' + game.system.canvasWidth + 'x' + game.system.canvasHeight;
+			this.text += ' WINDOW: ' + window.innerWidth + 'x' + window.innerHeight;
+			this.super();
 		}
 	});
 	// Disable debug start messages
