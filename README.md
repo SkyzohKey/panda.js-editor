@@ -1,11 +1,10 @@
 # Panda Editor
 
-### Code editor for Panda game development
+### Code editor for Panda Engine game development
 
 ## Download
 
-- [Panda Editor 0.1.0 for OS X](http://)
-- [Panda Editor 0.1.0 for Windows](http://)
+- Coming soon
 
 ## Screenshots
 
@@ -35,6 +34,5 @@
 
 ## License
 
-Panda Editor is released under the [MIT License](http://opensource.org/licenses/MIT).
-
-Financed by [Yleisradio](http://en.wikipedia.org/wiki/Yle).
+- Released under the [MIT License](http://opensource.org/licenses/MIT)
+- Financed by [Yleisradio](http://en.wikipedia.org/wiki/Yle)
