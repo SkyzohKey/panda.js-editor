@@ -205,11 +205,11 @@ game.module('engine.editor')
 		_updateText: function() {
 			if (app.connected && !this.connected) {
 				this.connected = true;
-				this.debugDiv.style.color = '#00ff00';
+				this.panel.style.color = '#00ff00';
 			}
 			if (!app.connected && this.connected) {
 				this.connected = false;
-				this.debugDiv.style.color = '#ff0000';
+				this.panel.style.color = '#ff0000';
 			}
 			this.text += ' SYSTEM: ' + game.system.width + 'x' + game.system.height;
 			this.text += ' CANVAS: ' + game.system.canvasWidth + 'x' + game.system.canvasHeight;

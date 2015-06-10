@@ -73,6 +73,7 @@ var JavaScriptHighlightRules = function(options) {
             "backgroundColor|anchorCenter|" +
             "addTo|scale|addAsset|addAttributes|addAudio|createClass|createScene|fullscreen|getJSON|getTexture|removeAsset|addEmitter|removeEmitter|removeObject|removeTimer",
         "keyword":
+            "texture|interactive|mousedown|mousemove|mouseup|" +
             "Math|const|import|get|set|" +
             "break|case|catch|continue|default|delete|do|else|finally|for|function|" +
             "if|in|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|debugger|" +
