@@ -22,11 +22,12 @@ editor.Config = Class.extend({
 	},
 
 	update: function(rawData) {
+		game = {};
 		eval(rawData);
-		this.data = pandaConfig;
+		this.data = game.config;
 		if (!this.data.name) this.data.name = 'Untitled';
 		if (!this.data.version) this.data.version = '0.0.0';
-		delete pandaConfig;
+		delete game.config;
 	},
 
 	saveComplete: function(err) {

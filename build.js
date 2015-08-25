@@ -1,5 +1,5 @@
 var info = require('./src/package.json');
-var NwBuilder = require('node-webkit-builder');
+var NwBuilder = require('nw-builder');
 var platform = process.argv[2] || 'osx';
 var fs = require('fs');
 
@@ -61,7 +61,7 @@ var config = {
     platforms: ['osx64', 'win64'],
     macIcns: './res/icons/panda.icns',
     winIco: './res/icons/panda.ico',
-    // version: '0.11.5',
+    version: '0.12.3',
     // buildType: 'versioned',
     buildDir: './build'
 };
