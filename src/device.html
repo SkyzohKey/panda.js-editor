@@ -1,5 +1,14 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
+// Fake Cordova object
+var cordova = {
+	require: function() {
+		return this;
+	},
+
+	nativeEvalAndFetch: function() {}
+};
+
 var app = {
 	connected: false,
 	connectCounter: 0,
@@ -57,9 +66,8 @@ var app = {
 
 		this.socket.emit('errorMsg', file, line, msg);
 
-		this.showErrorDiv();
-
-		game.system.pause();
+		// this.showErrorDiv();
+		// game.system.pause();
 		return false;
 	},
 
@@ -217,6 +225,7 @@ game.module('engine.editor')
 			this.super();
 		}
 	});
+
 	// Disable debug start messages
 	game.onStart = function() {};
 });
