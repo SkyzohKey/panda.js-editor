@@ -1,8 +1,3 @@
-// TODO
-// Add/remove module
-// Asset subfolders
-// Loading audio files
-
 var editor = {
     info: require('./package.json'),
     child_process: require('child_process'),

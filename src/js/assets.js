@@ -20,15 +20,28 @@ editor.Assets = Class.extend({
 	    id = id || filename;
 	    this.assets[filename] = id;
 	    this.count++;
+	},
 
-	    $('#assets .header').html('Assets (' + this.count + ')');
+	update: function() {
+		$('#assets .header').html('Assets (' + this.count + ')');
+		$('#assets .content .list').html('');
 
-	    var div = document.createElement('div');
-	    $(div).html(id);
-	    $(div).click(this.click.bind(this, filename, div));
-	    $(div).addClass('asset');
-	    $(div).attr('data-name', filename);
-	    $(div).appendTo($('#assets .content .list'));
+		var sortedList = [];
+		for (var filename in this.assets) {
+			sortedList.push(filename);
+		}
+		sortedList.sort();
+
+		for (var i = 0; i < sortedList.length; i++) {
+			var filename = sortedList[i];
+			var id = this.assets[filename];
+			var div = document.createElement('div');
+			$(div).html(id);
+			$(div).click(this.click.bind(this, filename, div));
+			$(div).addClass('asset');
+			$(div).attr('data-name', filename);
+			$(div).appendTo($('#assets .content .list'));
+		}
 	},
 
 	clear: function() {
@@ -145,7 +158,10 @@ editor.Assets = Class.extend({
 
 	assetCopied: function(filename, dontAdd, err) {
 	    if (err) return console.error(err);
-	    if (!dontAdd) this.add(filename);
+	    if (!dontAdd) {
+	    	this.add(filename);
+	    	this.update();
+	    }
 	    this.copyAssets(dontAdd);
 	},
 

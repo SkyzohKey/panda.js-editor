@@ -164,6 +164,7 @@ editor.Project = Class.extend({
 	    }
 
 	    this.updateModuleList();
+	    editor.assets.update();
 	    this.loaded();
 	},
 
