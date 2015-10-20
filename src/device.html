@@ -119,6 +119,8 @@ var app = {
 		scene = scene || game.system.sceneName;
 
 		this.hideErrorDiv();
+
+		console.clear();
 		
 		if (game.assetQueue.length + game.audioQueue.length > 0) {
 			var loader = new game.Loader(scene);
@@ -228,6 +230,9 @@ game.module('engine.editor')
 
 	// Disable debug start messages
 	game.onStart = function() {};
+
+	game.config.debug = game.config.debug || {};
+	game.config.debug.enabled = true;
 });
 
 (function() {
@@ -235,17 +240,24 @@ game.module('engine.editor')
 	window.console = {
 		log: function(msg) {
 			_console.log && _console.log(msg);
+			if (typeof msg === 'object') return;
 			app.socket.emit('console', 'log', msg);
 		},
 
 		warn: function(msg) {
 			_console.warn && _console.warn(msg);
+			if (typeof msg === 'object') return;
 			app.socket.emit('console', 'warn', msg);
 		},
 
 		error: function(msg) {
 			_console.error && _console.error(msg);
+			if (typeof msg === 'object') return;
 			app.socket.emit('console', 'error', msg);
+		},
+
+		clear: function() {
+			_console.clear();
 		}
 	};
 
