@@ -25,6 +25,7 @@ editor.Menu = Class.extend({
 	    debug.append(new editor.gui.MenuItem({ label: 'Bounds', click: editor.toggleBounds.bind(editor) }));
 	    debug.append(new editor.gui.MenuItem({ label: 'Hit areas', click: editor.toggleHitAreas.bind(editor) }));
 	    debug.append(new editor.gui.MenuItem({ label: 'Bodies', click: editor.toggleBodies.bind(editor) }));
+	    debug.append(new editor.gui.MenuItem({ label: 'FakeTouch', click: editor.toggleFakeTouch.bind(editor) }));
 	    
 	    // // Project menu
 	    // var project = new editor.gui.Menu();

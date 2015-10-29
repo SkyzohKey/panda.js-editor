@@ -281,6 +281,11 @@ var editor = {
         this.server.emit('toggleBodies');
     },
 
+    toggleFakeTouch: function() {
+        if (!this.server) return;
+        this.server.emit('toggleFakeTouch');
+    },
+
     showTab: function(tab) {
         $('.item.current').removeClass('current');
         $('.item[data-target="' + tab + '"]').addClass('current');

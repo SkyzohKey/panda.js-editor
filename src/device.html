@@ -158,6 +158,11 @@ var app = {
 		}
 	},
 
+	toggleFakeTouch: function() {
+		if (!game.Debug) return;
+		game.Debug.fakeTouch = !game.Debug.fakeTouch;
+	},
+
 	toggleBounds: function() {
 		if (!game.Debug) return;
 		game.Debug.showBounds = !game.Debug.showBounds;
@@ -210,17 +215,11 @@ game.module('engine.editor')
 .require('engine.debug')
 .body(function() {
 	game.Debug.inject({
-		connected: false,
-
 		_updateText: function() {
-			if (app.connected && !this.connected) {
-				this.connected = true;
-				this.panel.style.color = '#00ff00';
-			}
-			if (!app.connected && this.connected) {
-				this.connected = false;
-				this.panel.style.color = '#ff0000';
-			}
+			if (app.connected) this.panel.style.color = '#00ff00';
+			else this.panel.style.color = '#ff0000';
+			if (game.Debug.fakeTouch) this.panel.style.color = '#ffff00';
+
 			this.text += ' SYSTEM: ' + game.system.width + 'x' + game.system.height;
 			this.text += ' CANVAS: ' + game.system.canvasWidth + 'x' + game.system.canvasHeight;
 			this.text += ' WINDOW: ' + window.innerWidth + 'x' + window.innerHeight;
