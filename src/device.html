@@ -116,7 +116,8 @@ var app = {
 	},
 
 	changeScene: function(scene) {
-		scene = scene || game.system.sceneName;
+		console.log('changeScene');
+		scene = scene || game.scene.name;
 
 		this.hideErrorDiv();
 
@@ -133,7 +134,7 @@ var app = {
 
 	reloadModules: function(modules) {
 		game.config.autoStart = false;
-		game.ready = this.reloadModule.bind(this);
+		game.onReady = this.reloadModule.bind(this);
 
 		for (var i = 0; i < modules.length; i++) {
 			this.modulesToReload.push(modules[i]);
@@ -220,18 +221,16 @@ game.module('engine.editor')
 			else this.panel.style.color = '#ff0000';
 			if (game.Debug.fakeTouch) this.panel.style.color = '#ffff00';
 
-			this.text += ' SYSTEM: ' + game.system.width + 'x' + game.system.height;
-			this.text += ' CANVAS: ' + game.system.canvasWidth + 'x' + game.system.canvasHeight;
+			this.text += ' SYSTEM: ' + game.width + 'x' + game.height;
+			// this.text += ' CANVAS: ' + game.system.canvasWidth + 'x' + game.system.canvasHeight;
 			this.text += ' WINDOW: ' + window.innerWidth + 'x' + window.innerHeight;
 			this.super();
 		}
 	});
 
-	// Disable debug start messages
-	game.onStart = function() {};
-
 	game.config.debug = game.config.debug || {};
 	game.config.debug.enabled = true;
+	game.config.debug.showInfo = false;
 });
 
 (function() {
