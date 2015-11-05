@@ -1,5 +1,3 @@
-<script src="/socket.io/socket.io.js"></script>
-<script>
 // Fake Cordova object
 var cordova = {
 	require: function() {
@@ -290,5 +288,3 @@ game.module('engine.editor')
 }());
 
 app.init();
-
-</script>

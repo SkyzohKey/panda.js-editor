@@ -20,7 +20,7 @@ editor.Server = Class.extend({
 		var http = require('http').Server(app);
 		var io = require('socket.io')(http);
 
-		var script = editor.fs.readFileSync('device.html', { encoding: 'utf-8' });
+		var script = editor.fs.readFileSync('device/device.html', { encoding: 'utf-8' });
 
 		app.post('/register', function(req, res) {
 		    res.sendStatus(200);
@@ -38,6 +38,8 @@ editor.Server = Class.extend({
 		app.use('/', function(req, res, next) {
 		    editor.server.staticServe(req, res, next);
 		});
+
+		app.use('/device', this.express.static('device'));
 
 		io.on('connection', this.deviceConnected.bind(this));
 
