@@ -39,6 +39,8 @@ editor.Server = Class.extend({
 		    editor.server.staticServe(req, res, next);
 		});
 
+		app.use('/cordova.js', this.express.static('cordova.js'));
+
 		app.use('/device', this.express.static('device'));
 
 		io.on('connection', this.deviceConnected.bind(this));
