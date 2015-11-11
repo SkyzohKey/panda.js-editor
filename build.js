@@ -3,6 +3,17 @@ var NwBuilder = require('nw-builder');
 var platform = process.argv[2] || 'osx';
 var fs = require('fs');
 
+var config = {
+    files: './src/**/**',
+    appName: 'Panda Editor',
+    platforms: ['osx64', 'win64'],
+    macIcns: './res/icons/panda.icns',
+    winIco: './res/icons/panda.ico',
+    version: '0.12.1',
+    // buildType: 'versioned',
+    buildDir: './build'
+};
+
 var package = {
     platforms: [],
 
@@ -55,17 +66,6 @@ var package = {
     }
 };
 
-var config = {
-    files: './src/**/**',
-    appName: 'Panda Editor',
-    platforms: ['osx64', 'win64'],
-    macIcns: './res/icons/panda.icns',
-    winIco: './res/icons/panda.ico',
-    version: '0.12.3',
-    // buildType: 'versioned',
-    buildDir: './build'
-};
-
 if (platform === 'osx') {
     package.platforms.push('osx');
     config.platforms = ['osx64'];
@@ -87,5 +87,5 @@ console.log('Building for ' + platform + '...');
 
 nw.build(function(err) {
 	if (err) console.log(err);
-	else package.run();
+	// else package.run();
 });
