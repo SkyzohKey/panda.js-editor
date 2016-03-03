@@ -23,8 +23,8 @@ editor.Config = Class.extend({
 
 	update: function(rawData) {
 		game = {};
-		eval(rawData);
-		this.data = game.config;
+		//eval(rawData);
+		this.data = rawData.pandaConfig;
 		if (!this.data.name) this.data.name = 'Untitled';
 		if (!this.data.version) this.data.version = '0.0.0';
 		delete game.config;

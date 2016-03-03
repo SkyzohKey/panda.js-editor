@@ -28,7 +28,9 @@ editor.Project = Class.extend({
 
 	    this.modules['game.main'] = {};
 
-	    editor.window.title = editor.info.description + ' - ' + this.config.data.name + ' ' + this.config.data.version;
+			var name = this.config.data.name || "untitled project";
+			var version = this.config.data.version || "0.0.1";
+	    editor.window.title = editor.info.description + ' - ' + name + ' ' + version;
 
 	    console.log('Loading modules');
 	    this.loadModuleData();
@@ -111,7 +113,7 @@ editor.Project = Class.extend({
 	            var expName = nodes[i].expression.callee.property.name;
 	            if (expName === 'addAsset') {
 	                var args = nodes[i].expression.arguments;
-	                
+
 	                var path = args[0].value;
 	                var id = path;
 	                if (args[1]) id = args[1].value;
@@ -120,7 +122,7 @@ editor.Project = Class.extend({
 	            }
 	            if (expName === 'addAudio') {
 	            	var args = nodes[i].expression.arguments;
-	            	
+
 	            	var path = args[0].value;
 	            	var id = path;
 	            	if (args[1]) id = args[1].value;
@@ -172,7 +174,7 @@ editor.Project = Class.extend({
 	    this.loadCallback();
 
 	    editor.storage.set('lastProject', this.dir);
-	    
+
 	    var lastClass = editor.storage.get('lastClass', true);
 	    var lastModule = editor.storage.get('lastModule', true);
 
@@ -319,7 +321,7 @@ editor.Project = Class.extend({
 	    	console.error(err);
 	    	return this.writeFiles();
 	    }
-	    
+
 	    for (var className in this.modules[module].classes) {
 	        var classObj = this.modules[module].classes[className];
 	        classObj.changed = false;
