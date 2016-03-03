@@ -8,8 +8,9 @@
 
 ## Screenshots
 
-![OS X screenshot](https://raw.githubusercontent.com/ekelokorpi/panda.js-editor/master/res/screenshots/osx.png)
-![Windows screenshot](https://raw.githubusercontent.com/ekelokorpi/panda.js-editor/master/res/screenshots/win.png)
+![OS X screenshot](https://raw.githubusercontent.com/SkyzohKey/panda.js-editor/master/res/screenshots/osx.png)
+![Windows screenshot](https://raw.githubusercontent.com/SkyzohKey/panda.js-editor/master/res/screenshots/win.png)
+![Linux screenshot](https://raw.githubusercontent.com/SkyzohKey/panda.js-editor/master/res/screenshots/linux.png)
 
 ## Features
 
