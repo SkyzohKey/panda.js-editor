@@ -5,7 +5,7 @@ var fs = require('fs');
 
 var config = {
     files: './src/**/**',
-    appName: 'Panda Editor',
+    appName: 'PandaEditor',
     platforms: ['osx64', 'win64'],
     macIcns: './res/icons/panda.icns',
     winIco: './res/icons/panda.ico',
@@ -56,7 +56,7 @@ var package = {
         var target = 'release/panda.js-editor-osx-' + info.version + '.dmg';
 
         if (fs.existsSync(target)) fs.unlinkSync(target);
-        
+
         var ee = appdmg({ source: 'dmg.json', target: target });
 
         ee.on('finish', function () {
@@ -76,6 +76,13 @@ else if (platform === 'win') {
     config.platforms = ['win64'];
     delete config.macIcns;
 }
+else if (platform === 'linux') {
+    package.platforms.push('linux64');
+    config.platforms = ['linux64'];
+    config.mergeZip = true;
+    delete config.winIco;
+    delete config.macIco;
+}
 else if (platform === 'all') {
     package.platforms.push('win');
     package.platforms.push('osx');
@@ -87,5 +94,5 @@ console.log('Building for ' + platform + '...');
 
 nw.build(function(err) {
 	if (err) console.log(err);
-	// else package.run();
+	//else package.run();
 });
